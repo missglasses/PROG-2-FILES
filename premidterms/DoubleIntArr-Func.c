@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// FUNC: DOUBLES THE ELEMENTS IN ARRAY
+/* FUNC: DOUBLES THE ELEMENTS IN ARRAY */
 
 int *doubleArray(int arr[], int count)
 {
