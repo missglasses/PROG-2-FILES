@@ -1,3 +1,0 @@
-- Singly
-- Double
-- Circular
