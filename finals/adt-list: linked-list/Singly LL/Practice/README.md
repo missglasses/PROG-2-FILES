@@ -1,1 +1,1 @@
-Applying the insertions with structures
+Applying the insertions,deletion,searching with structures
