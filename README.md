@@ -1,4 +1,5 @@
 **Midterm Assessment**
+
 Coverage:
 Pointers and Dynamic Arrays
 
@@ -7,6 +8,7 @@ Program Structure and Libraries
 Structure and Union
 
 **Final Assessment**
+
 Coverage:
 Arrays
 
