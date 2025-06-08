@@ -1,6 +1,6 @@
 #include <stdio.h>
 //THE VALUE IN MAIN REMAINS THE SAME
-void changeVal(numero)
+void changeVal(int numero)
 {
     numero = 5;
 }
