@@ -6,7 +6,7 @@ void deleteFirst(int arr[], int *n) {
     }
     
     //shifts array to the left
-    for (int i=0; i<*n; i++){
+    for (int i=0; i<*n-1; i++){
         arr[i]=arr[i+1];
         
     }
