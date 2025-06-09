@@ -1,8 +1,8 @@
-00 - Premid
+A - Premid
 
-01 - Midterms
+B - Midterms
 
-02 - Prefi
+C - Prefi
 
-03 - Prefinals
+D - Prefinals
 
