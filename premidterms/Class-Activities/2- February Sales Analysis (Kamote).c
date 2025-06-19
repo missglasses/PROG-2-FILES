@@ -1,12 +1,20 @@
 #include <stdio.h>
 #define FEB_DAYS 28
-#define DAYS 7
-#define NUM_OF_WEEKS (FEB_DAYS / DAYS)
+#define DAYS_IN_WEEK 7
+#define WEEKS 4
 
-void rankPrices(float feb[]); // top price per week
-void getMinMax(float arr[], int range, float *min, float *max, float *ave);
-void printPrice(float arr[], int x);
-void rankWeeks(float averages[], int weeks[]); // top
+float getMaxPrice(float prices[], int n);     // Returns the highest Camote price from the array
+float getMinPrice(float prices[], int n);     // Returns the lowest Camote price from the array
+float getAveragePrice(float prices[], int n); // Returns the average Camote price for the given range
+void displayPrice(float prices[], int n);     // Displays all Camote prices in a clean, formatted output
+
+/*Requirements
+The program should handle 28 float values, representing daily prices for February.
+It should calculate and display:
+All daily prices.
+Maximum and minimum prices for the month.
+Weekly average prices (4 weeks).
+Average price for the entire month. */
 
 int main()
 {
@@ -15,96 +23,84 @@ int main()
                            15.0, 13.0, 12.0, 12.0, 14.0, 15.0, 15.0,
                            15.0, 12.0, 8.0, 10.0, 15.0, 12.0, 12.0};
 
-    rankPrices(feb);
+    printf("------------------------------------\n");
+    displayPrice(feb, FEB_DAYS);
+
+    printf("\n\n====MONTHLY STATS====\n\n");
+    printf("Maximum price: Php %.2f\n", getMaxPrice(feb, FEB_DAYS));
+    printf("Minimum price: Php %.2f\n", getMinPrice(feb, FEB_DAYS));
+
+    printf("\n====WEEKLY AVERAGE PRICES====\n\n");
+    for (int week = 0; week < WEEKS; week++)
+    {
+        int start = week * DAYS_IN_WEEK;
+        printf("Week %d: Php %.2f\n", week + 1,
+               getAveragePrice(feb + start, DAYS_IN_WEEK));
+    }
+
+    printf("\nAverage price for the entire month: Php %.2f\n\n", getAveragePrice(feb, FEB_DAYS));
+    printf("------------------------------------\n");
+
     return 0;
 }
 
-void rankPrices(float feb[])
+float getMaxPrice(float prices[], int n)
 {
-    printf("\n\n|| FEBRUARY PRICES ||\n\n ");
-
-    float weekAves[NUM_OF_WEEKS];
-    int traceWeek[NUM_OF_WEEKS];
-    float max = feb[0], min = feb[0];
-
-    for (int week = 0; week < NUM_OF_WEEKS; week++)
+    float max = prices[0];
+    for (int i = 1; i < n; i++)
     {
-        int x = week * DAYS;
-        printf("\n===== Week %d =====\n", week + 1);
-
-        float weekMin, weekMax, weekAve;
-        getMinMax(feb, x, &weekMin, &weekMax, &weekAve);
-
-        // comparison
-        if (weekMax > max)
-            max = weekMax;
-        if (weekMin < min)
-            min = weekMin;
-
-        // this will store weekly average for ranking
-        weekAves[week] = weekAve;
-        traceWeek[week] = week;
-
-        for (int i = 0; i < DAYS; i++)
+        if (prices[i] > max)
         {
-            int day = x + i;
-            printf("Day %2d: Php ", day + 1);
-            printPrice(feb, day);
-            printf("\n");
+            max = prices[i];
         }
-
-        printf("Weekly Min: Php %.2f | Max: Php %.2f | Ave: Php %.2f\n",
-               weekMin, weekMax, weekAve);
     }
-
-    // rank the weeks by average
-    rankWeeks(weekAves, traceWeek);
-    printf("\n==== Weekly Average====\n");
-    for (int i = 0; i < NUM_OF_WEEKS; i++)
-    {
-        printf("Rank #%d: Week %d (Ave: Php %.2f)\n",
-               i + 1, traceWeek[i] + 1, weekAves[traceWeek[i]]);
-    }
-
-    printf("\n==== Highest & Lowest Price ====\n");
-    printf("Minimum: Php %.2f\n", min);
-    printf("Maximum: Php %.2f", max);
+    return max;
 }
 
-void getMinMax(float arr[], int range, float *min, float *max, float *ave)
+float getMinPrice(float prices[], int n)
 {
-    *min = arr[range];
-    *max = arr[range];
-    float sum = arr[range];
-
-    for (int i = 1; i < DAYS; i++)
+    float min = prices[0];
+    for (int i = 1; i < n; i++)
     {
-        if (arr[range + i] < *min)
-            *min = arr[range + i];
-        if (arr[range + i] > *max)
-            *max = arr[range + i];
-        sum += arr[range + i];
-    }
-    *ave = sum / DAYS;
-}
-
-void rankWeeks(float averages[], int weeks[])
-{
-    for (int i = 0; i < NUM_OF_WEEKS - 1; i++)
-    {
-        for (int j = 0; j < NUM_OF_WEEKS - i - 1; j++)
+        if (prices[i] < min)
         {
-            if (averages[weeks[j]] < averages[weeks[j + 1]])
-            {
-                int temp = weeks[j];
-                weeks[j] = weeks[j + 1];
-                weeks[j + 1] = temp;
-            }
+            min = prices[i];
+        }
+    }
+    return min;
+}
+
+float getAveragePrice(float prices[], int n)
+{
+    float sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum += prices[i];
+    }
+    return sum / n;
+}
+
+void displayPrice(float prices[], int n)
+{
+    printf("\n==== FEBRUARY DAILY PRICES ====\n");
+
+    for (int week = 0; week < WEEKS; week++)
+    {
+        printf("\n|| Week %d ||\n", week + 1);
+
+        for (int day = 0; day < DAYS_IN_WEEK; day++)
+        {
+            int day_index = (week * DAYS_IN_WEEK) + day;
+            printf("Day %2d: Php %6.2f\n", day_index + 1, prices[day_index]);
         }
     }
 }
 
-void printPrice(float arr[], int x)
-{
-    printf("%.2f", arr[x]);
-}
+// void displayPrice(float prices[], int n)
+// {
+//     printf("\n\n====FEBRUARY DAILY PRICES====\n");
+//     for (int i = 0; i < n; i++)
+//     {
+//         printf("Day %2d: Php %.2f\n", i + 1, prices[i]);
+//     }
+// }
