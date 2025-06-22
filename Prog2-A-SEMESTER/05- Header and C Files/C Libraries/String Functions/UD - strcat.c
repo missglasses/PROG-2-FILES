@@ -26,7 +26,6 @@ int main() {
     
     char src[]="Days";
     char des[20]="Good";
-    char n=5;
     
     myStrCat(src,des);
     
