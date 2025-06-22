@@ -1,15 +1,15 @@
 ## String Functions: 
-strlen(str);
+strlen(str); ✓ 
 
-strcpy(dest, src);
+strcpy(dest, src); ✓ 
 
-strncpy(dest, src, n);
+strncpy(dest, src, n); ✓ 
 
-strcat(dest, src);
+strcat(dest, src); ✓ 
 
-strncat(dest, src, n);
+strncat(dest, src, n); ✓ 
 
-strcmp(s1, s2);
+strcmp(s1, s2); 
 
 strncmp(s1, s2, n);
 
