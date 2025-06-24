@@ -24,14 +24,14 @@ int main() {
 bool insertFront(int a[], int *count, int item, int *n) {
     
     if(*count >=*n) {
-        a= realloc(a, sizeof(int)*(*n)*2);
-        *n*=2;
+        a= realloc(a, sizeof(int)*(*n)*2); //creates a new address
+        *n*=2; //doubles the size
     }
     
     for (int i=*count; i>0; --i){
-        a[i]=a[i-1];
+        a[i]=a[i-1]; //move elements
     }
-    a[0]=item;
+    a[0]=item; //insert
     (*count)++;
       
 }
