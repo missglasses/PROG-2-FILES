@@ -30,6 +30,19 @@ int *getAllPositiveAndRemove(int list[], int *count, int *pos_rem_count);
     int myList[100], count =30;
     populate(myList, count);
     displayList(myList, count);
+    
+    printf("MEAN : %d\n", );
+    printf("MEDIAN : %d\n", );
+    printf("MODE : %d\n", );
+    printf("MIN : %d\n", );
+    printf("MAX : %d\n", );
+    printf("No. of values greater than ave : %d\n", );
+    printf("Even count : %d\n", );
+    printf("Odd count : %d\n", );
+    printf("Negative count : %d\n", );
+    printf("Negative values: %d\n", );
+    printf("\n\n-----------------------\n\n");
+    graph(myList, count);
 
 
     return 0;
