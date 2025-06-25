@@ -37,7 +37,12 @@ int *getAllPositiveAndRemove(int list[], int *count, int *pos_rem_count);
 
 
  void populate(int list[], int count){
-
+    for (int i=0; i<count; i++){
+        list[i]=(rad()%20)+1;
+        if(list[i]!=0 && (rad()%2)==0){
+            list[i]*=-1;
+        }
+    }
  }
 float getMean(int list[], int count){
 
@@ -72,6 +77,8 @@ float getMedian(int list[], int count){
 }
 int *getMode(int list[], int count, int *mode_count){
     //occurences
+    //sorted func
+    
 
 }
 int getMax(int list[], int count){
@@ -111,7 +118,9 @@ int *sortList(int list[], int count){
     return sortList;
 }
 void displayList(int list[], int count){
+    for (int i=0; i<count; i++){
 
+    }
 }
 int counAboveAverage(int list[], int count){
 
