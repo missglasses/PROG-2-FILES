@@ -1,1 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
 
+int* myMalloc(int size){ //basically creates an array in stack
+    
+    int *newArr = malloc(sizeof(int)*size);
+    
+    if(newArr==NULL){
+        printf("Failed to alocate\n");
+        exit(1);
+    }
+    return newArr;
+}
+
+int main() {
+  
+    int size=10;
+    int *myArray = myMalloc(size);
+    // int count=0;
+    
+     for (int i = 0; i < size; i++) {
+        myArray[i] = i * 10;
+    }
+    
+    for (int i = 0; i < size; i++) {
+        printf("%d ", myArray[i]); //0 10 20 30 40 50 60 70 80 90 
+    }
+    
+    
+    free(myArray);
+
+    return 0;
+}
