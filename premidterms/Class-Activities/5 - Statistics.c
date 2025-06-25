@@ -1,4 +1,3 @@
-//EDIT THIS BRO
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -72,7 +71,7 @@ float getMedian(int list[], int count){
 
 }
 int *getMode(int list[], int count, int *mode_count){
-
+    //occurences
 
 }
 int getMax(int list[], int count){
@@ -155,7 +154,7 @@ void graph(int list[], int count){
 }
 int *getAllPositiveAndRemove(int list[], int *count, int *pos_rem_count){
 
-    // int *getPos = malloc(sizeof(int)*(count));
+    int *getPos = malloc(sizeof(int)*(count));
     int j=0;
     for(int i=0; i<*count; i++){
         if (list[i]<=0){
@@ -164,5 +163,4 @@ int *getAllPositiveAndRemove(int list[], int *count, int *pos_rem_count){
         }
     }
 }
-
 
