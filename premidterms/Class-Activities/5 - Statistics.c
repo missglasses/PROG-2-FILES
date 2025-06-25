@@ -30,12 +30,13 @@ int *getAllPositiveAndRemove(int list[], int *count, int *pos_rem_count);
     int myList[100], count =30;
     populate(myList, count);
     displayList(myList, count);
+    int mode_count=0;
     
-    printf("MEAN : %d\n", );
-    printf("MEDIAN : %d\n", );
-    printf("MODE : %d\n", );
-    printf("MIN : %d\n", );
-    printf("MAX : %d\n", );
+    printf("MEAN : %d\n", getMean(myList, count));
+    printf("MEDIAN : %.2f\n", getMedian(myList, count));
+    printf("MODE : %.2f\n", getMode(myList, &mode_count));
+    printf("MIN : %d\n", getMin(myList, count));
+    printf("MAX : %d\n", getMax(myList, count));
     printf("No. of values greater than ave : %d\n", );
     printf("Even count : %d\n", );
     printf("Odd count : %d\n", );
