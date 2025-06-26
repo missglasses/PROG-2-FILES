@@ -18,7 +18,7 @@ int main() {
     printf("%s\t%d\t%.2f\n", s1.name, s1.age,
     s1.grade);
     printf("%s\t%d\t%.2f\n", s2.name, s2.age,
-    s2.grade);
+    s2.grade); //both prints Kendrick Lamar
     
     
     
