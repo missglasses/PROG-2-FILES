@@ -8,7 +8,7 @@ typedef struct {
 
 void insertEnd(ArrayList* list, int value) {
     if (list->size >= MAX) {
-        printf("List is full. Cannot insert %d.\n", value);
+        printf("List is full\n");
         return;
     }
 
