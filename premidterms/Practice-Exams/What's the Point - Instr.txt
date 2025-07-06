@@ -1,0 +1,42 @@
+/*Pointy, the curious point, seeks to ascertain its location within the plane. Aid Pointy in determining the position of a given point on the plane by creating a function called **identifyPoint()**. This function should accept a point value and return its corresponding position.
+
+Return Value | Meaning
+
+0 | Origin
+
+1 | Quadrant 1
+
+2 | Quadrant 2
+
+3 | Quadrant 3
+
+4 | Quadrant 4
+
+5 | x - axis
+
+6 | y - axis
+
+Must implement (no credit if not implemented => 4.0):
+
+Functions
+Structure
+Full Credit
+
+Implement additional function called **displayPoint()**. This function should accept a point value and display the point in the format (x_value, y_value). Example if x is 5 and y is 6, display should be (5, 6).
+Implement additional function called **createPoint()**. This function should accept the x and y coordinates and returns a point type.
+Sample Output 1
+
+Enter x - coordinate: 0
+Enter y - coordinate: 0
+The point (0, 0) is in Origin.
+Sample Output 2
+
+Enter x - coordinate: 5
+Enter y - coordinate: 4
+The point (5, 4) is in Q1.
+Sample Output 3
+
+Enter x - coordinate: -4
+Enter y - coordinate: 7
+The point (-4, 7) is in Q2.
+*/
