@@ -14,18 +14,6 @@ int main (){
         scanf("%d", &arr[i]);
     }
 
-    /*for (i=0; i<size; i++){
-        if (arr[i+1]-arr[i-1]!=1){
-          missing = arr[i+1]-arr[i-1];
-        }
-    }*/
-
-    for (i=0; i<size; i++){
-        if (arr[i+1]-arr[i]==1){
-       //   missing = arr[i++]-arr[i-1];
-            missing = arr[i]+arr[i+1];
-        }
-    }
     printf("The missing number is: %d", missing);
     
 
