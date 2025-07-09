@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+typedef struct node {
+    int data;
+    struct node *next;
+}NodeType, *NodePtr; 
+
+void insertFront(NodePtr *list, int data);
+void display(NodePtr list);
+
+int sumEven(NodePtr list);
+int countPrime(NodePtr list);
+float getAverage(NodePtr list);
+bool isPalindrome(NodePtr list);
+int countOccurence(NodePtr list, int data);
+NodePtr getAllAboveAverage(NodePtr list);
+
+
+int main (){
+    NodePtr myList =NULL; 
+    NodePtr *pList = &myList;
+
+    display(myList);
+    insertFront(&myList, 66);
+    //you can also:
+    //insertFront(pList, 66);
+    display(myList);
+    insertFront(&myList, 45);
+    display(myList);
+    insertFront(&myList, 89);
+    display(myList);
+    
+
+    return 0;
+}
+
+void insertFront(NodePtr *list, int data){
+
+    NodePtr temp = malloc(sizeof(NodeType)); //if it doesn't work, use struct node 
+    
+    if (temp){
+        temp->data=data;
+        temp->next=*list;
+        *list = temp;
+    }
+
+}
+
+void display(NodePtr list){
+
+    printf("{");
+    while(list){
+        printf("%d", list->data);
+        if(list->next!=NULL){
+            printf("->");
+        }
+        list = list->next;
+    }
+      printf("}\n");
+
+}
+
+int sumEven(NodePtr list){
+    NodePtr temp = malloc(sizeof(NodeType));
+    
+}
+int countPrime(NodePtr list){
+
+}
+float getAverage(NodePtr list){
+
+     int sum=0, ave=0;
+
+     NodePtr temp = malloc(sizeof(NodeType));
+
+
+     if (temp!=NULL){
+        sum += list->data;
+     }
+
+     ave = sum/ //how to count le nodes 
+
+}
+bool isPalindrome(NodePtr list){
+
+}
+int countOccurence(NodePtr list, int data){
+
+}
+NodePtr getAllAboveAverage(NodePtr list){
+
+}
