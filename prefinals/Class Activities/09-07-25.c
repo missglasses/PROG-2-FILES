@@ -62,10 +62,28 @@ void display(NodePtr list){
 }
 
 int sumEven(NodePtr list){
-    // NodePtr temp = malloc(sizeof(NodeType));
+    int sumEv =0;
 
+    NodePtr temp = list;
+
+    while(temp!=NULL){
+    if (temp->data%2==0){
+        sumEv +=temp->data;
+    }
+    temp = temp->next;
+    }
+    return sumEv;
 }
 int countPrime(NodePtr list){
+
+    int prime=1;
+
+    for(int i*i; i< ; --i){ //i forgot brooo
+        if (if n<){
+
+        }
+    }
+
 
 }
 float getAverage(NodePtr list){
