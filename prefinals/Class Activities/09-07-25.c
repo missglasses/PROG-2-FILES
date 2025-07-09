@@ -62,24 +62,26 @@ void display(NodePtr list){
 }
 
 int sumEven(NodePtr list){
-    NodePtr temp = malloc(sizeof(NodeType));
-    
+    // NodePtr temp = malloc(sizeof(NodeType));
+
 }
 int countPrime(NodePtr list){
 
 }
 float getAverage(NodePtr list){
 
-     int sum=0, ave=0;
+     int count=0;
+     int sum =0.0;
 
-     NodePtr temp = malloc(sizeof(NodeType));
+     NodePtr temp =list;
 
-
-     if (temp!=NULL){
+     while   (temp!=NULL){
         sum += list->data;
+        count++;
+        temp = temp->next; //traverse
      }
 
-     ave = sum/ //how to count le nodes 
+     return sum/count; 
 
 }
 bool isPalindrome(NodePtr list){
