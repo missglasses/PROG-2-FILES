@@ -25,11 +25,13 @@ typedef struct node {
 } ProdNode, *ProdList;
 
 Date createDate(int d, int m, int y);
+void displayDate(Date d);
 Product createProduct(int id, String name, Date mfg, int qty, float price);
 bool updateProductQty(ProdList *list, int id, int newQty);
 void displayProduct(Product p);
 void initProductList(ProdList *list);
 bool addProductSortedByExp(ProdList *list, Product p);
+ProdList removedProductOverDate(ProdList *list, Date cutoffDate);
 void displayProducts(ProdList list);
 
 // Month name helper
@@ -65,6 +67,9 @@ Date createDate(int d, int m, int y) {
     petsa.month = m;
     petsa.year = y;
     return petsa;
+}
+void displayDate(Date d){
+    //msybr not usre printf but just put in main for printing
 }
 
 Product createProduct(int id, String name, Date mfg, int qty, float price) {
@@ -122,6 +127,9 @@ bool addProductSortedByExp(ProdList *list, Product p) {
     }
 
     return true;
+}
+ProdList removedProductOverDate(ProdList *list, Date cutoffDate){
+
 }
 
 void displayProducts(ProdList list) {
