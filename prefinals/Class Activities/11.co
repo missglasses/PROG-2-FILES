@@ -1,0 +1,133 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+
+typedef char String[20];
+
+typedef struct {
+    int day;
+    int month;
+    int year;
+} Date;
+
+typedef struct {
+    int prodID;
+    String prodName;
+    Date dateMfg;
+    int prodQty;
+    float prodPrice;
+} Product;
+
+typedef struct node {
+    Product prod;
+    struct node *next;
+} ProdNode, *ProdList;
+
+Date createDate(int d, int m, int y);
+Product createProduct(int id, String name, Date mfg, int qty, float price);
+bool updateProductQty(ProdList *list, int id, int newQty);
+void displayProduct(Product p);
+void initProductList(ProdList *list);
+bool addProductSortedByExp(ProdList *list, Product p);
+void displayProducts(ProdList list);
+
+// Month name helper
+const char *monthNames[13] = {
+    "", "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+};
+
+int main() {
+    ProdList list;
+    initProductList(&list);
+
+    Product p1 = createProduct(1, "Tiramisu", createDate(8, 2, 2025), 15, 2995.0);
+    Product p2 = createProduct(2, "Red Velvet", createDate(7, 2, 2025), 12, 1695.0);
+    Product p3 = createProduct(3, "Velvet", createDate(7, 2, 2025), 12, 1695.0);
+    Product p4 = createProduct(4, "Fruit Festival", createDate(7, 2, 2025), 12, 2250.0);
+
+    addProductSortedByExp(&list, p1);
+    addProductSortedByExp(&list, p2);
+    addProductSortedByExp(&list, p3);
+    addProductSortedByExp(&list, p4);
+
+    printf("ID   Name             Mfg Date     Qty   Price\n");
+    printf("----------------------------------------------\n");
+    displayProducts(list);
+
+    return 0;
+}
+
+Date createDate(int d, int m, int y) {
+    Date petsa;
+    petsa.day = d;
+    petsa.month = m;
+    petsa.year = y;
+    return petsa;
+}
+
+Product createProduct(int id, String name, Date mfg, int qty, float price) {
+    Product prod;
+    prod.prodID = id;
+    strcpy(prod.prodName, name);
+    prod.dateMfg = mfg;
+    prod.prodQty = qty;
+    prod.prodPrice = price;
+    return prod;
+}
+
+bool updateProductQty(ProdList *list, int id, int newQty) {
+    ProdNode *curr = *list;
+    while (curr != NULL) {
+        if (curr->prod.prodID == id) {
+            curr->prod.prodQty = newQty;
+            return true;
+        }
+        curr = curr->next;
+    }
+    return false;
+}
+
+void displayProduct(Product p) {
+    printf("%-4d %-16s %02d-%s-%04d  %-5d %.2f\n",
+        p.prodID,
+        p.prodName,
+        p.dateMfg.day,
+        monthNames[p.dateMfg.month],
+        p.dateMfg.year,
+        p.prodQty,
+        p.prodPrice
+    );
+}
+
+void initProductList(ProdList *list) {
+    *list = NULL;
+}
+
+bool addProductSortedByExp(ProdList *list, Product p) {
+    ProdNode *newNode = (ProdNode *)malloc(sizeof(ProdNode));
+    if (!newNode) return false;
+
+    newNode->prod = p;
+    newNode->next = NULL;
+
+    if (*list == NULL) {
+        *list = newNode;
+    } else {
+        ProdNode *curr = *list;
+        while (curr->next != NULL)
+            curr = curr->next;
+        curr->next = newNode;
+    }
+
+    return true;
+}
+
+void displayProducts(ProdList list) {
+    ProdNode *curr = list;
+    while (curr != NULL) {
+        displayProduct(curr->prod);
+        curr = curr->next;
+    }
+}
