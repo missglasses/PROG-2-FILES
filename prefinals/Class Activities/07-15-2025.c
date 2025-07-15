@@ -194,12 +194,25 @@ Product *getProduct(ProdList list, int qty_threshold){
     - if no product matches return the fummy product with id -1*/
 
     Product *produkto = malloc(sizeof(Product));
-    
+    produkto
 
 
 }
 void displayProductList(Product *aList){
     /*display products in the above list , if of -1 is empty or no list to display */
+   
+    // printf("%03d  | %-16s | %02d %s %04d | %02d %s %04d | %-4d | Php %.2f\n",
+    //      aList->.prodID,
+    //      aList->.prodName,
+    //      aList->.dateMfg.day,
+    //      aList->[p.dateMfg.month],
+    //      aList->.dateMfg.year,
+    //      aList->.dateExp.day,
+    //      aList->[p.dateExp.month],
+    //      aList->.dateExp.year,
+    //      aList->.prodQty,
+    //      aList->.prodPrice
+    // );
 }
 bool addItemToStorage(Storage *item_storage, Product p){
     /*-adds the new product in the prods based on qty, the larger the quanitty the father it iwill be stored in prods 
