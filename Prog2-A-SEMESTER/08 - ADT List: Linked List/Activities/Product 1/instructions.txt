@@ -1,0 +1,129 @@
+You are required to implement a set of utility functions to support managing and displaying information related to products and dates within an inventory system. These functions will help in presenting the stored data in a readable and structured format, as well as assist in creating date instances.
+
+The functions and their requirements are as follows:
+
+void displayDate(Date d);
+Purpose:
+Display a given date in a human-readable format.
+Input:
+A Date structure that contains integer fields for day (date), month (month), and year (year). The month field is zero-indexed (0 means January, 11 means December).
+Output:
+Prints the date to the standard output in the format:
+DD MMM YYYY
+where MMM is the three-letter abbreviation of the month (e.g., Jan, Feb, Mar, ...).
+Example:
+For input {date=5, month=0, year=2023}, the output should be:
+05 Jan 2023
+void displayProduct(Product p);
+Purpose:
+Display all details of a single product in a structured format.
+Input:
+A Product structure containing:
+prodID: integer product identifier
+prodName: string (char array) for product name
+prodShelfLife: integer shelf life in months
+prodMFG: Date of manufacturing
+prodQty: integer quantity available
+Output:
+Prints all product attributes to standard output with appropriate labels and formatting. The manufacturing date should be displayed using the displayDate() function.
+Example:
+Product ID: 101
+Product Name: Milk
+Shelf Life: 6 months
+Manufacturing Date: 15 Jan 2023
+Quantity: 20
+
+
+void displayProducts(ProductList prodList);
+Purpose:
+Display the details of all products contained within a product list.
+Input:
+A ProductList structure containing:
+A dynamically allocated array of Product items (prods)
+count: current number of products in the list
+max: maximum capacity
+Output:
+Iterates through each product in the list and displays its details. Products should be separated visually for clarity.
+Date createDate(int date, int month, int year);
+Purpose:
+Create and initialize a Date structure instance with provided day, month, and year values.
+Input:
+date: Day of the month (1-31)
+month: Month of the year, zero-indexed (0 for January through 11 for December)
+year: Four-digit year value (e.g., 2023)
+Output:
+Returns a Date struct populated with the given values.
+Notes:
+This function does not perform date validity checks; assume input values are valid.
+Product createProduct(int prodID, char prodName[], int prodShelfLife, Date prodMFG, int prodQty);
+Purpose:
+Create and initialize a Product structure instance with the provided product details.
+Input:
+prodID: Integer identifier for the product.
+prodName: String (character array) representing the product name.
+prodShelfLife: Integer denoting the product's shelf life in months.
+prodMFG: Date structure representing the manufacturing date of the product.
+prodQty: Integer quantity of the product available.
+Output:
+Returns a Product struct populated with the provided information.
+Notes:
+The function should safely copy the product name string into the struct.
+No validation of input data is required beyond copying.
+Sample Output 1
+
+Enter option: 2
+Enter count: 5
+
+Original List:
+ID         | Name                      | Shelf Life      | Quantity   | Manufactured Date
+        11 | Butter                    |               4 |         10 | 18 Oct 2023
+        12 | Beans                     |              12 |         17 | 14 Feb 2024
+        13 | Olives                    |              24 |         30 | 29 Aug 2023
+        14 | Pickles                   |              24 |         25 | 21 Dec 2024
+        15 | Cereal                    |              12 |          5 | 04 Apr 2024
+
+Second Product:
+Product ID: 12
+Product Name: Beans
+Shelf Life: 12 months
+Manufacturing Date: 14 Feb 2024
+Quantity: 17
+Sample Output 2
+
+Enter option: 6
+Enter count: 4
+
+Original List:
+ID         | Name                      | Shelf Life      | Quantity   | Manufactured Date
+         2 | Variental Vinegar         |              24 |         17 | 16 Mar 2023
+         4 | Chocolate Chaud           |              24 |         25 | 25 Dec 2024
+         6 | Spiced Sea Salt           |              36 |         32 | 01 Jan 2024
+         8 | Bruschetta                |              18 |         18 | 21 Aug 2024
+
+Second Product:
+Product ID: 4
+Product Name: Chocolate Chaud
+Shelf Life: 24 months
+Manufacturing Date: 25 Dec 2024
+Quantity: 25
+Sample Output 3
+
+Enter option: 1
+Enter count: 7
+
+Original List:
+ID         | Name                      | Shelf Life      | Quantity   | Manufactured Date
+         1 | BBQ Sauce                 |              12 |         10 | 05 Jul 2024
+         2 | Variental Vinegar         |              24 |         17 | 16 Mar 2023
+         3 | Marmalade                 |              18 |         30 | 25 Sep 2023
+         4 | Chocolate Chaud           |              24 |         25 | 25 Dec 2024
+         5 | Compote                   |              18 |          5 | 07 Apr 2023
+         6 | Spiced Sea Salt           |              36 |         32 | 01 Jan 2024
+         7 | Pizza Paste               |              18 |         12 | 15 May 2023
+
+Second Product:
+Product ID: 2
+Product Name: Variental Vinegar
+Shelf Life: 24 months
+Manufacturing Date: 16 Mar 2023
+Quantity: 17
