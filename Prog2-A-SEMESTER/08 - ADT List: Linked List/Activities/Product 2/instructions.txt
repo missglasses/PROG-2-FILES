@@ -1,0 +1,186 @@
+You are provided with the following data structures and helper functions (already implemented and available for use):
+
+Date structure representing a date with fields: date, month (0 for January to 11 for December), and year.
+Product structure containing product details including a manufacturing date (prodMFG).
+ProductList structure representing a dynamic collection of Product items, with fields for the product array pointer, current item count, and maximum capacity.
+Helper functions for date-related operations:
+isLeapYear(int year) — determines if a year is a leap year.
+daysInMonth(int month, int year) — returns the number of days in the given month and year.
+totalDays(Date d) — returns the total number of days since a reference point for the given date.
+differenceDate(Date d1, Date d2) — calculates the difference in days between two dates.
+Your task is to implement the following function:
+
+bool addItemSortedByMFG(ProductList *list, Product p);
+
+This function must:
+
+Add the provided product p into the list such that the array remains sorted in ascending order by manufacturing date (prodMFG). The earliest manufacturing date should be placed first.
+If the list has reached its maximum capacity (list->count == list->max), the function must not add the product and return false.
+If there is capacity, insert the product at the correct sorted position, adjust the count accordingly, and return true.
+Constraints and Notes:
+
+You do not need to implement or modify the helper functions; they can be used for accurate date comparisons.
+The product list is a dynamically allocated array; resizing is not required.
+Focus solely on maintaining the sorted order based on manufacturing dates when adding new items.
+The month field in dates ranges from 0 (January) to 11 (December).
+ 
+
+Sample Output 1
+
+Enter option: 2
+Enter count: 6
+
+Original List:
+ID         | Name                      | Shelf Life      | Quantity   | Manufactured Date
+        11 | Butter                    |               4 |         10 | 18 Oct 2023
+        12 | Beans                     |              12 |         17 | 14 Feb 2024
+        13 | Olives                    |              24 |         30 | 29 Aug 2023
+        14 | Pickles                   |              24 |         25 | 21 Dec 2024
+        15 | Cereal                    |              12 |          5 | 04 Apr 2024
+        16 | Yogurt                    |               4 |         32 | 01 Jan 2025
+
+Sorted List (MFG):
+ID         | Name                      | Shelf Life      | Quantity   | Manufactured Date
+        16 | Yogurt                    |               4 |         32 | 01 Jan 2025
+        14 | Pickles                   |              24 |         25 | 21 Dec 2024
+        15 | Cereal                    |              12 |          5 | 04 Apr 2024
+        12 | Beans                     |              12 |         17 | 14 Feb 2024
+        11 | Butter                    |               4 |         10 | 18 Oct 2023
+        13 | Olives                    |              24 |         30 | 29 Aug 2023
+Sample Output 2
+
+Enter option: 3
+Enter count: 7
+
+Original List:
+ID         | Name                      | Shelf Life      | Quantity   | Manufactured Date
+         1 | BBQ Sauce                 |              12 |         10 | 05 Jul 2024
+         3 | Marmalade                 |              18 |         30 | 25 Sep 2023
+         5 | Compote                   |              18 |          5 | 07 Apr 2023
+         7 | Pizza Paste               |              18 |         12 | 15 May 2023
+         9 | Vinaigrette               |              18 |          3 | 14 Jun 2024
+        11 | Butter                    |               4 |         10 | 18 Oct 2023
+        13 | Olives                    |              24 |         30 | 29 Aug 2023
+
+Sorted List (MFG):
+ID         | Name                      | Shelf Life      | Quantity   | Manufactured Date
+         1 | BBQ Sauce                 |              12 |         10 | 05 Jul 2024
+         9 | Vinaigrette               |              18 |          3 | 14 Jun 2024
+        11 | Butter                    |               4 |         10 | 18 Oct 2023
+         3 | Marmalade                 |              18 |         30 | 25 Sep 2023
+        13 | Olives                    |              24 |         30 | 29 Aug 2023
+         7 | Pizza Paste               |              18 |         12 | 15 May 2023
+         5 | Compote                   |              18 |          5 | 07 Apr 2023
+Sample Output 3
+
+Enter option: 1
+Enter count: 5
+
+Original List:
+ID         | Name                      | Shelf Life      | Quantity   | Manufactured Date
+         1 | BBQ Sauce                 |              12 |         10 | 05 Jul 2024
+         2 | Variental Vinegar         |              24 |         17 | 16 Mar 2023
+         3 | Marmalade                 |              18 |         30 | 25 Sep 2023
+         4 | Chocolate Chaud           |              24 |         25 | 25 Dec 2024
+         5 | Compote                   |              18 |          5 | 07 Apr 2023
+
+Sorted List (MFG):
+ID         | Name                      | Shelf Life      | Quantity   | Manufactured Date
+         4 | Chocolate Chaud           |              24 |         25 | 25 Dec 2024
+         1 | BBQ Sauce                 |              12 |         10 | 05 Jul 2024
+         3 | Marmalade                 |              18 |         30 | 25 Sep 2023
+         5 | Compote                   |              18 |          5 | 07 Apr 2023
+         2 | Variental Vinegar         |              24 |         17 | 16 Mar 2023
+You are provided with the following data structures and helper functions (already implemented and available for use):
+
+Date structure representing a date with fields: date, month (0 for January to 11 for December), and year.
+Product structure containing product details including a manufacturing date (prodMFG).
+ProductList structure representing a dynamic collection of Product items, with fields for the product array pointer, current item count, and maximum capacity.
+Helper functions for date-related operations:
+isLeapYear(int year) — determines if a year is a leap year.
+daysInMonth(int month, int year) — returns the number of days in the given month and year.
+totalDays(Date d) — returns the total number of days since a reference point for the given date.
+differenceDate(Date d1, Date d2) — calculates the difference in days between two dates.
+Your task is to implement the following function:
+
+bool addItemSortedByMFG(ProductList *list, Product p);
+
+This function must:
+
+Add the provided product p into the list such that the array remains sorted in ascending order by manufacturing date (prodMFG). The earliest manufacturing date should be placed first.
+If the list has reached its maximum capacity (list->count == list->max), the function must not add the product and return false.
+If there is capacity, insert the product at the correct sorted position, adjust the count accordingly, and return true.
+Constraints and Notes:
+
+You do not need to implement or modify the helper functions; they can be used for accurate date comparisons.
+The product list is a dynamically allocated array; resizing is not required.
+Focus solely on maintaining the sorted order based on manufacturing dates when adding new items.
+The month field in dates ranges from 0 (January) to 11 (December).
+ 
+
+Sample Output 1
+
+Enter option: 2
+Enter count: 6
+
+Original List:
+ID         | Name                      | Shelf Life      | Quantity   | Manufactured Date
+        11 | Butter                    |               4 |         10 | 18 Oct 2023
+        12 | Beans                     |              12 |         17 | 14 Feb 2024
+        13 | Olives                    |              24 |         30 | 29 Aug 2023
+        14 | Pickles                   |              24 |         25 | 21 Dec 2024
+        15 | Cereal                    |              12 |          5 | 04 Apr 2024
+        16 | Yogurt                    |               4 |         32 | 01 Jan 2025
+
+Sorted List (MFG):
+ID         | Name                      | Shelf Life      | Quantity   | Manufactured Date
+        16 | Yogurt                    |               4 |         32 | 01 Jan 2025
+        14 | Pickles                   |              24 |         25 | 21 Dec 2024
+        15 | Cereal                    |              12 |          5 | 04 Apr 2024
+        12 | Beans                     |              12 |         17 | 14 Feb 2024
+        11 | Butter                    |               4 |         10 | 18 Oct 2023
+        13 | Olives                    |              24 |         30 | 29 Aug 2023
+Sample Output 2
+
+Enter option: 3
+Enter count: 7
+
+Original List:
+ID         | Name                      | Shelf Life      | Quantity   | Manufactured Date
+         1 | BBQ Sauce                 |              12 |         10 | 05 Jul 2024
+         3 | Marmalade                 |              18 |         30 | 25 Sep 2023
+         5 | Compote                   |              18 |          5 | 07 Apr 2023
+         7 | Pizza Paste               |              18 |         12 | 15 May 2023
+         9 | Vinaigrette               |              18 |          3 | 14 Jun 2024
+        11 | Butter                    |               4 |         10 | 18 Oct 2023
+        13 | Olives                    |              24 |         30 | 29 Aug 2023
+
+Sorted List (MFG):
+ID         | Name                      | Shelf Life      | Quantity   | Manufactured Date
+         1 | BBQ Sauce                 |              12 |         10 | 05 Jul 2024
+         9 | Vinaigrette               |              18 |          3 | 14 Jun 2024
+        11 | Butter                    |               4 |         10 | 18 Oct 2023
+         3 | Marmalade                 |              18 |         30 | 25 Sep 2023
+        13 | Olives                    |              24 |         30 | 29 Aug 2023
+         7 | Pizza Paste               |              18 |         12 | 15 May 2023
+         5 | Compote                   |              18 |          5 | 07 Apr 2023
+Sample Output 3
+
+Enter option: 1
+Enter count: 5
+
+Original List:
+ID         | Name                      | Shelf Life      | Quantity   | Manufactured Date
+         1 | BBQ Sauce                 |              12 |         10 | 05 Jul 2024
+         2 | Variental Vinegar         |              24 |         17 | 16 Mar 2023
+         3 | Marmalade                 |              18 |         30 | 25 Sep 2023
+         4 | Chocolate Chaud           |              24 |         25 | 25 Dec 2024
+         5 | Compote                   |              18 |          5 | 07 Apr 2023
+
+Sorted List (MFG):
+ID         | Name                      | Shelf Life      | Quantity   | Manufactured Date
+         4 | Chocolate Chaud           |              24 |         25 | 25 Dec 2024
+         1 | BBQ Sauce                 |              12 |         10 | 05 Jul 2024
+         3 | Marmalade                 |              18 |         30 | 25 Sep 2023
+         5 | Compote                   |              18 |          5 | 07 Apr 2023
+         2 | Variental Vinegar         |              24 |         17 | 16 Mar 2023
